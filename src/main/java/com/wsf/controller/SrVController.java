@@ -16,16 +16,16 @@ import com.wsf.service.SrVService;
 @MyController
 public class SrVController {
 	
-	@MyAutowired("MyServiceImpl")
+	@MyAutowired("SrVServiceImpl")
 	private SrVService service;
-	@MyRequestMapping("/qeury")
+	@MyRequestMapping("/query")
 	public void query(HttpServletRequest req,HttpServletResponse resp,
 			@MyRequestParam("name") String name,@MyRequestParam("age") String age){
 		
 		PrintWriter pw;
 		try {
 			pw = resp.getWriter();
-			pw.println(service.query(name, age));
+			pw.write(service.query(name, age));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
